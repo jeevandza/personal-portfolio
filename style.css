@@ -1100,6 +1100,11 @@ h2 {
   font-size: 0.78rem;
   margin-bottom: 44px;
   letter-spacing: 0.04em;
+ 
+}
+
+.resume-text{
+  color: var(--muted);
 }
 
 .contact-links {
