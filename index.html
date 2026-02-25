@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jeevan DSouza — Senior Full Stack Developer. MERN stack, AWS, CI/CD." />
+  <title>Jeevan DSouza — Full Stack Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       LOADER OVERLAY
+  ══════════════════════════════════════════ -->
+  <div id="loader" aria-hidden="true">
+    <canvas id="loaderCanvas"></canvas>
+
+    <!-- Phase 1: Terminal boot -->
+    <div class="ld-phase" id="ldPhase1">
+      <div class="ld-terminal">
+        <div class="ld-term-bar">
+          <span class="ld-dot" style="background:#ff5f57;"></span>
+          <span class="ld-dot" style="background:#ffbd2e;"></span>
+          <span class="ld-dot" style="background:#28c840;"></span>
+          <span class="ld-term-title">jd.dev — boot.sh</span>
+        </div>
+        <div class="ld-term-body" id="ldTermBody"></div>
+      </div>
+    </div>
+
+    <!-- Phase 2: Name letters fall in -->
+    <div class="ld-phase" id="ldPhase2">
+      <div class="ld-name-wrap">
+        <div class="ld-letter-row">
+          <span class="ld-letter">J</span>
+          <span class="ld-letter">E</span>
+          <span class="ld-letter">E</span>
+          <span class="ld-letter">V</span>
+          <span class="ld-letter">A</span>
+          <span class="ld-letter">N</span>
+        </div>
+        <div class="ld-letter-row">
+          <span class="ld-letter ld-pink">D</span>
+          <span class="ld-letter ld-pink">S</span>
+          <span class="ld-letter ld-pink">O</span>
+          <span class="ld-letter ld-pink">U</span>
+          <span class="ld-letter ld-pink">Z</span>
+          <span class="ld-letter ld-pink">A</span>
+        </div>
+        <div class="ld-subtitle" id="ldSubtitle">FULL STACK DEVELOPER</div>
+      </div>
+    </div>
+
+    <!-- Phase 3: Progress bar + scan -->
+    <div class="ld-phase" id="ldPhase3">
+      <div class="ld-scan-wrap">
+        <div class="ld-big-text" id="ldBigText" data-text="INITIALISING">INITIALISING</div>
+        <div class="ld-scanline"></div>
+        <div class="ld-progress-wrap">
+          <div class="ld-progress-bar" id="ldProgressBar"></div>
+          <div class="ld-progress-pct" id="ldProgressPct">0%</div>
+        </div>
+        <div class="ld-status-line" id="ldStatusLine">Loading assets...</div>
+      </div>
+    </div>
+
+    <button class="ld-skip" id="ldSkip" aria-label="Skip intro">SKIP ›</button>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       CUSTOM CURSOR  (desktop only via CSS)
+  ══════════════════════════════════════════ -->
+  <div class="cursor"      id="cursor"      aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing"  aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════
+       PARTICLE CANVAS BACKGROUND
+  ══════════════════════════════════════════ -->
+  <canvas id="canvas" aria-hidden="true"></canvas>
+
+  <!-- ══════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════ -->
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="#hero" class="nav-logo">JD</a>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <button class="nav-hamburger" id="hamburger"
+            aria-label="Toggle navigation" aria-expanded="false" aria-controls="navDrawer">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <div class="nav-drawer" id="navDrawer" role="menu">
+    <a href="#about"      role="menuitem">About</a>
+    <a href="#experience" role="menuitem">Experience</a>
+    <a href="#skills"     role="menuitem">Skills</a>
+    <a href="#education"  role="menuitem">Education</a>
+    <a href="#contact"    role="menuitem">Contact</a>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════ -->
+  <section id="hero">
+    <div class="hero-inner">
+      <div class="hero-tag">Senior Full Stack Developer</div>
+
+      <h1>
+        Jeevan<br>
+        <em>DSouza</em><br>
+        <span>Builds</span> Worlds.
+      </h1>
+
+      <p class="hero-desc">
+        5 years crafting scalable MERN applications. From pixels to APIs —
+        turning <strong>complex problems</strong> into elegant, high-performance
+        solutions that users actually love.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#experience" class="btn btn-primary">View My Work</a>
+        <a href="#contact"    class="btn btn-outline">Get In Touch</a>
+      </div>
+
+      <!-- Mobile-only inline stats -->
+      <div class="hero-stats-mobile" aria-hidden="true">
+        <div class="stat">
+          <div class="stat-num">5+</div>
+          <div class="stat-label">Years Exp.</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Companies</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">2×</div>
+          <div class="stat-label">Award Winner</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop stats panel -->
+    <div class="hero-stats" aria-hidden="true">
+      <div class="stat">
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Companies</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">2×</div>
+        <div class="stat-label">Award Winner</div>
+      </div>
+    </div>
+
+    <div class="scroll-line" aria-hidden="true">Scroll to explore</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════════ -->
+  <section id="about">
+    <div class="section-wrap">
+      <div class="section-label">About Me</div>
+      <h2>Code. Lead.<br>Deliver.</h2>
+
+      <div class="about-grid">
+        <div class="about-text">
+          Accomplished Full Stack Developer with a proven 5-year record building
+          <strong>MERN stack applications</strong> that scale. I bridge the gap between
+          design and engineering — comfortable leading teams, architecting systems,
+          and shipping features that matter.
+          <br><br>
+          From <strong>AWS deployments</strong> to custom Figma plugins, from REST APIs
+          to CI/CD pipelines — I bring both depth and breadth to every project I touch.
+          <br><br>
+          Based in <strong>Moodbidire, Karnataka</strong> &middot; Open to remote &amp; hybrid roles.
+        </div>
+
+        <div class="about-awards">
+          <div class="award-card">
+            <div class="award-title">Best Employee of the Month</div>
+            <div class="award-sub">Conrad Bengaluru &mdash; January 2019</div>
+          </div>
+          <div class="award-card award-pink">
+            <div class="award-title">Valuable Employee of the Year</div>
+            <div class="award-sub">Pace Wisdom Solutions &mdash; April 2023</div>
+          </div>
+          <div class="award-card award-purple">
+            <div class="award-title">Multilingual Communicator</div>
+            <div class="award-sub">English &middot; Hindi &middot; Kannada &middot; Tulu &middot; Konkani</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       EXPERIENCE
+  ══════════════════════════════════════════ -->
+  <section id="experience">
+    <div class="section-wrap">
+      <div class="section-label">Career</div>
+      <h2>Experience<br>&amp; Impact.</h2>
+
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="job-header">
+            <div class="job-title">Senior Software Engineer</div>
+            <div class="job-period">Aug 2024 &mdash; Present</div>
+          </div>
+          <div class="job-company">Wybrid Technologies Pvt Ltd</div>
+          <ul class="job-bullets">
+            <li>Led frontend and backend teams, driving product improvements and delivering scalable solutions</li>
+            <li>Built full-stack applications using React.js and Node.js with Express, MongoDB, and MUI / Tailwind</li>
+            <li>Deployed and managed apps on AWS using EC2, S3, CloudFront, and Route 53</li>
+            <li>Streamlined CI/CD workflows using GitHub Actions and Docker, accelerating release cycles</li>
+            <li>Integrated third-party services for auth, payments, and external APIs</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="job-header">
+            <div class="job-title">Software Engineer</div>
+            <div class="job-period">Sept 2021 &mdash; Aug 2024</div>
+          </div>
+          <div class="job-company">Pace Wisdom Solutions Pvt Ltd</div>
+          <ul class="job-bullets">
+            <li>Built responsive web apps using React.js, Next.js, and Node.js with complex backend integrations</li>
+            <li>Led cross-functional teams, improved code quality through reviews and mentorship</li>
+            <li>Designed custom Figma plugins using React.js; proficient in Webpack and Esbuild</li>
+            <li>Improved quality with CI pipelines and automated testing, reducing production bugs</li>
+            <li>Delivered features on time in Agile sprints, aligning tech solutions with business goals</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="job-header">
+            <div class="job-title">Freelance Web Developer</div>
+            <div class="job-period">Feb 2020 &mdash; Jan 2021</div>
+          </div>
+          <div class="job-company">Remote &middot; Bangalore</div>
+          <ul class="job-bullets">
+            <li>Real Estate App &mdash; responsive property listings with HTML, CSS, JavaScript</li>
+            <li>Furniture Shop Page &mdash; product showcase designed in Figma, built with jQuery</li>
+            <li>Restaurant Menu App &mdash; interactive responsive menu using Figma &amp; Adobe tools</li>
+            <li>Local News Website &mdash; clean, user-friendly site built with HTML and CSS</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot-purple"></div>
+          <div class="job-header">
+            <div class="job-title">Surveillance Executive</div>
+            <div class="job-period">Jan 2016 &mdash; Jan 2020</div>
+          </div>
+          <div class="job-company">Contrad Bengaluru &amp; Texport Industries Pvt Ltd</div>
+          <ul class="job-bullets">
+            <li>Programmed and debugged CCTV, BMS, lock, and fire control systems</li>
+            <li>Built client relationships and improved team efficiency and cost control</li>
+            <li>Received <strong>Best Employee of the Month</strong> — Conrad Bengaluru (Jan 2019)</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SKILLS
+  ══════════════════════════════════════════ -->
+  <section id="skills">
+    <div class="section-wrap">
+      <div class="section-label">Expertise</div>
+      <h2>Skills &amp;<br>Technologies.</h2>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-icon">⚡</div>
+          <div class="skill-cat">Frontend</div>
+          <div class="skill-tags">
+            <span class="tag">React.js</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Redux</span>
+            <span class="tag">Tailwind</span>
+            <span class="tag">MUI</span>
+            <span class="tag">jQuery</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🔧</div>
+          <div class="skill-cat">Backend</div>
+          <div class="skill-tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">PassportJS</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Rust</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🗄️</div>
+          <div class="skill-cat">Databases</div>
+          <div class="skill-tags">
+            <span class="tag">MongoDB</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">DynamoDB</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">☁️</div>
+          <div class="skill-cat">Cloud &amp; DevOps</div>
+          <div class="skill-tags">
+            <span class="tag">AWS EC2</span>
+            <span class="tag">AWS S3</span>
+            <span class="tag">CloudFront</span>
+            <span class="tag">Route 53</span>
+            <span class="tag">Docker</span>
+            <span class="tag">GitHub Actions</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🛠️</div>
+          <div class="skill-cat">Tools &amp; Testing</div>
+          <div class="skill-tags">
+            <span class="tag">Git</span>
+            <span class="tag">Jest</span>
+            <span class="tag">Mocha</span>
+            <span class="tag">Chai</span>
+            <span class="tag">Webpack</span>
+            <span class="tag">Esbuild</span>
+            <span class="tag">Figma</span>
+            <span class="tag">Jira</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-icon">🧠</div>
+          <div class="skill-cat">Methodologies</div>
+          <div class="skill-tags">
+            <span class="tag">Scrum</span>
+            <span class="tag">Kanban</span>
+            <span class="tag">Agile</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">DSA</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       EDUCATION
+  ══════════════════════════════════════════ -->
+  <section id="education">
+    <div class="section-wrap">
+      <div class="section-label">Education</div>
+      <h2>Academic<br>Foundation.</h2>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-degree">Bachelor of Computer Science</div>
+          <div class="edu-school">Bangalore University, Karnataka</div>
+        </div>
+        <div class="edu-card edu-card-pink">
+          <div class="edu-degree">Engineering Diploma in Mechatronics</div>
+          <div class="edu-school">SNMP Moodbidire</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       CONTACT
+  ══════════════════════════════════════════ -->
+  <section id="contact">
+    <div class="contact-big">Let&rsquo;s Build<br><span>Together.</span></div>
+    <p class="contact-sub">Open to exciting full-stack opportunities &mdash; let&rsquo;s talk.</p>
+
+    <div class="contact-links">
+      <a href="mailto:jeevandsouza94@gmail.com" class="contact-link">
+        ✉&nbsp;&nbsp;jeevandsouza94@gmail.com
+      </a>
+      <a href="tel:+919901992861" class="contact-link">
+        ☎&nbsp;&nbsp;+91 99019 92861
+      </a>
+      <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="contact-link">
+        ⟶&nbsp;&nbsp;LinkedIn Profile
+      </a>
+    </div>
+
+    <div class="footer-line">&copy; 2025 Jeevan DSouza &middot; Crafted with passion &amp; Node.js</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       SCRIPTS  (loader first, then main app)
+  ══════════════════════════════════════════ -->
+  <script src="loader.js"></script>
+  <script src="main.js"></script>
+
+</body>
+</html>
