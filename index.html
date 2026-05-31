@@ -4,299 +4,288 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Jeevan DSouza — Senior Full Stack Developer. MERN stack, AWS, CI/CD." />
-  <title>Jeevan DSouza — Full Stack Developer</title>
+  <title>Jeevan DSouza — Senior Full Stack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
 </head>
 <body>
 
-
-  <div id="loader" aria-hidden="true">
-    <canvas id="loaderCanvas"></canvas>
-
-    <!-- Phase 1: Terminal boot -->
-    <div class="ld-phase" id="ldPhase1">
-      <div class="ld-terminal">
-        <div class="ld-term-bar">
-          <span class="ld-dot" style="background:#ff5f57;"></span>
-          <span class="ld-dot" style="background:#ffbd2e;"></span>
-          <span class="ld-dot" style="background:#28c840;"></span>
-          <span class="ld-term-title">jd.dev — boot.sh</span>
-        </div>
-        <div class="ld-term-body" id="ldTermBody"></div>
-      </div>
-    </div>
-
-    <!-- Phase 2: Name letters fall in -->
-    <div class="ld-phase" id="ldPhase2">
-      <div class="ld-name-wrap">
-        <div class="ld-letter-row">
-          <span class="ld-letter">J</span>
-          <span class="ld-letter">E</span>
-          <span class="ld-letter">E</span>
-          <span class="ld-letter">V</span>
-          <span class="ld-letter">A</span>
-          <span class="ld-letter">N</span>
-        </div>
-        <div class="ld-letter-row">
-          <span class="ld-letter ld-pink">D</span>
-          <span class="ld-letter ld-pink">S</span>
-          <span class="ld-letter ld-pink">O</span>
-          <span class="ld-letter ld-pink">U</span>
-          <span class="ld-letter ld-pink">Z</span>
-          <span class="ld-letter ld-pink">A</span>
-        </div>
-        <div class="ld-subtitle" id="ldSubtitle">FULL STACK DEVELOPER</div>
-      </div>
-    </div>
-
-    <!-- Phase 3: Progress bar + scan -->
-    <div class="ld-phase" id="ldPhase3">
-      <div class="ld-scan-wrap">
-        <div class="ld-big-text" id="ldBigText" data-text="INITIALISING">INITIALISING</div>
-        <div class="ld-scanline"></div>
-        <div class="ld-progress-wrap">
-          <div class="ld-progress-bar" id="ldProgressBar"></div>
-          <div class="ld-progress-pct" id="ldProgressPct">0%</div>
-        </div>
-        <div class="ld-status-line" id="ldStatusLine">Loading assets...</div>
-      </div>
-    </div>
-
-    <button class="ld-skip" id="ldSkip" aria-label="Skip intro">SKIP ›</button>
-  </div>
-
-  <!-- ══════════════════════════════════════════
-       CUSTOM CURSOR  (desktop only via CSS)
-  ══════════════════════════════════════════ -->
-  <div class="cursor"      id="cursor"      aria-hidden="true"></div>
-  <div class="cursor-ring" id="cursorRing"  aria-hidden="true"></div>
-
-  <!-- ══════════════════════════════════════════
-       PARTICLE CANVAS BACKGROUND
-  ══════════════════════════════════════════ -->
-  <canvas id="canvas" aria-hidden="true"></canvas>
-
-  <!-- ══════════════════════════════════════════
-       NAVIGATION
-  ══════════════════════════════════════════ -->
+  <!-- NAVIGATION -->
   <nav role="navigation" aria-label="Main navigation">
-    <a href="#hero" class="nav-logo">JD</a>
+    <a href="#hero" class="nav-logo">
+      <span class="nav-logo-bracket">&lt;</span>JD<span class="nav-logo-bracket">/&gt;</span>
+    </a>
 
     <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
+      <a href="#about"><span class="nav-num">01.</span> About</a>
+      <a href="#experience"><span class="nav-num">02.</span> Experience</a>
+      <a href="#skills"><span class="nav-num">03.</span> Skills</a>
+      <a href="#education"><span class="nav-num">04.</span> Education</a>
+      <a href="#contact"><span class="nav-num">05.</span> Contact</a>
     </div>
 
-    <button class="nav-hamburger" id="hamburger"
-            aria-label="Toggle navigation" aria-expanded="false" aria-controls="navDrawer">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <div class="nav-right">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark theme">
+        <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+      </button>
+
+      <a href="./jeevan_resume_d.pdf" download class="nav-resume-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Resume
+      </a>
+
+      <button class="nav-hamburger" id="hamburger"
+              aria-label="Toggle navigation" aria-expanded="false" aria-controls="navDrawer">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </nav>
 
   <div class="nav-drawer" id="navDrawer" role="menu">
-    <a href="#about"      role="menuitem">About</a>
-    <a href="#experience" role="menuitem">Experience</a>
-    <a href="#skills"     role="menuitem">Skills</a>
-    <a href="#education"  role="menuitem">Education</a>
-    <a href="#contact"    role="menuitem">Contact</a>
+    <a href="#about"      role="menuitem"><span class="nav-num">01.</span> About</a>
+    <a href="#experience" role="menuitem"><span class="nav-num">02.</span> Experience</a>
+    <a href="#skills"     role="menuitem"><span class="nav-num">03.</span> Skills</a>
+    <a href="#education"  role="menuitem"><span class="nav-num">04.</span> Education</a>
+    <a href="#contact"    role="menuitem"><span class="nav-num">05.</span> Contact</a>
+    <a href="./jeevan_resume_d.pdf" download role="menuitem">Download Resume</a>
   </div>
 
-  <!-- ══════════════════════════════════════════
-       HERO
-  ══════════════════════════════════════════ -->
+  <!-- HERO -->
   <section id="hero">
-    <div class="hero-inner">
-      <div class="hero-tag">Senior Full Stack Developer</div>
+    <div class="hero-bg-orb hero-orb-1" aria-hidden="true"></div>
+    <div class="hero-bg-orb hero-orb-2" aria-hidden="true"></div>
 
-      <h1>
-        Jeevan<br>
-        <em>DSouza</em><br>
-        <span>Builds</span> Worlds.
-      </h1>
+    <div class="hero-inner">
+      <p class="hero-greeting">Hi, my name is</p>
+      <h1>Jeevan <span>DSouza.</span></h1>
+      <h2 class="hero-sub">I build things for the web.</h2>
 
       <p class="hero-desc">
-        5 years crafting scalable MERN applications. From pixels to APIs —
-        turning <strong>complex problems</strong> into elegant, high-performance
-        solutions that users actually love.
+        Senior Full Stack Developer with <strong>5+ years</strong> crafting scalable MERN stack
+        applications. I bridge design and engineering — leading teams, architecting systems,
+        and shipping products on AWS that users love.
       </p>
 
       <div class="hero-actions">
         <a href="#experience" class="btn btn-primary">View My Work</a>
-        <a href="#contact"    class="btn btn-outline">Get In Touch</a>
+        <a href="#contact"    class="btn btn-ghost">Get In Touch
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
       </div>
 
-      <!-- Mobile-only inline stats -->
-      <div class="hero-stats-mobile" aria-hidden="true">
+      <div class="hero-stats">
         <div class="stat">
-          <div class="stat-num">5+</div>
-          <div class="stat-label">Years Exp.</div>
+          <div class="stat-num">5<span>+</span></div>
+          <div class="stat-label">Years Experience</div>
         </div>
+        <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat">
           <div class="stat-num">3</div>
           <div class="stat-label">Companies</div>
         </div>
+        <div class="stat-divider" aria-hidden="true"></div>
         <div class="stat">
-          <div class="stat-num">2×</div>
+          <div class="stat-num">2<span>×</span></div>
           <div class="stat-label">Award Winner</div>
         </div>
       </div>
     </div>
 
-    <!-- Desktop stats panel -->
-    <div class="hero-stats" aria-hidden="true">
-      <div class="stat">
-        <div class="stat-num">5+</div>
-        <div class="stat-label">Years Experience</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">3</div>
-        <div class="stat-label">Companies</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">2×</div>
-        <div class="stat-label">Award Winner</div>
-      </div>
+    <div class="hero-scroll" aria-hidden="true">
+      <span>scroll</span>
+      <div class="scroll-track"><div class="scroll-thumb"></div></div>
     </div>
-
-    <div class="scroll-line" aria-hidden="true">Scroll to explore</div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       ABOUT
-  ══════════════════════════════════════════ -->
+  <!-- ABOUT -->
   <section id="about">
     <div class="section-wrap">
-      <div class="section-label">About Me</div>
-      <h2>Code. Lead.<br>Deliver.</h2>
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-line" aria-hidden="true"></div>
+      </div>
 
       <div class="about-grid">
         <div class="about-text">
-          Accomplished Full Stack Developer with a proven 5-year record building
-          <strong>MERN stack applications</strong> that scale. I bridge the gap between
-          design and engineering — comfortable leading teams, architecting systems,
-          and shipping features that matter.
-          <br><br>
-          From <strong>AWS deployments</strong> to custom Figma plugins, from REST APIs
-          to CI/CD pipelines — I bring both depth and breadth to every project I touch.
-          <br><br>
-          Based in <strong>Moodbidire, Karnataka</strong> &middot; Open to remote &amp; hybrid roles.
+          <p>
+            Accomplished Full Stack Developer with a proven record building
+            <strong>MERN stack applications</strong> that scale. I bridge the gap between
+            design and engineering — comfortable leading teams, architecting systems,
+            and shipping features that matter.
+          </p>
+          <p>
+            From <strong>AWS deployments</strong> to custom Figma plugins, from REST APIs
+            to CI/CD pipelines — I bring both depth and breadth to every project I touch.
+          </p>
+          <p>
+            Based in <strong>Moodbidire, Karnataka</strong> &middot; Open to remote &amp; hybrid roles.
+          </p>
+
+          <div class="about-tech">
+            <p class="about-tech-label">Technologies I work with:</p>
+            <ul class="tech-list">
+              <li>React.js &amp; Next.js</li>
+              <li>Node.js &amp; Express</li>
+              <li>MongoDB &amp; PostgreSQL</li>
+              <li>AWS (EC2, S3, CloudFront)</li>
+              <li>TypeScript</li>
+              <li>Docker &amp; GitHub Actions</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="about-awards">
+        <div class="about-cards">
           <div class="award-card">
-            <div class="award-title">Best Employee of the Month</div>
-            <div class="award-sub">Conrad Bengaluru &mdash; January 2019</div>
+            <div class="award-icon">🏆</div>
+            <div class="award-body">
+              <div class="award-title">Best Employee of the Month</div>
+              <div class="award-sub">Conrad Bengaluru &mdash; January 2019</div>
+            </div>
           </div>
-          <div class="award-card award-pink">
-            <div class="award-title">Valuable Employee of the Year</div>
-            <div class="award-sub">Pace Wisdom Solutions &mdash; April 2023</div>
+          <div class="award-card">
+            <div class="award-icon">⭐</div>
+            <div class="award-body">
+              <div class="award-title">Valuable Employee of the Year</div>
+              <div class="award-sub">Pace Wisdom Solutions &mdash; April 2023</div>
+            </div>
           </div>
-          <div class="award-card award-purple">
-            <div class="award-title">Multilingual Communicator</div>
-            <div class="award-sub">English &middot; Hindi &middot; Kannada &middot; Tulu &middot; Konkani</div>
+          <div class="award-card">
+            <div class="award-icon">🌐</div>
+            <div class="award-body">
+              <div class="award-title">Multilingual Communicator</div>
+              <div class="award-sub">English &middot; Hindi &middot; Kannada &middot; Tulu &middot; Konkani</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       EXPERIENCE
-  ══════════════════════════════════════════ -->
+  <!-- EXPERIENCE -->
   <section id="experience">
     <div class="section-wrap">
-      <div class="section-label">Career</div>
-      <h2>Experience<br>&amp; Impact.</h2>
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Experience</h2>
+        <div class="section-line" aria-hidden="true"></div>
+      </div>
 
       <div class="timeline">
 
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="job-header">
-            <div class="job-title">Senior Software Engineer</div>
-            <div class="job-period">Aug 2024 &mdash; Present</div>
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
           </div>
-          <div class="job-company">Wybrid Technologies Pvt Ltd</div>
-          <ul class="job-bullets">
-            <li>Led frontend and backend teams, driving product improvements and delivering scalable solutions</li>
-            <li>Built full-stack applications using React.js and Node.js with Express, MongoDB, and MUI / Tailwind</li>
-            <li>Deployed and managed apps on AWS using EC2, S3, CloudFront, and Route 53</li>
-            <li>Streamlined CI/CD workflows using GitHub Actions and Docker, accelerating release cycles</li>
-            <li>Integrated third-party services for auth, payments, and external APIs</li>
-          </ul>
+          <div class="timeline-card">
+            <div class="job-meta">
+              <div class="job-period-badge">Aug 2024 &mdash; Present</div>
+              <div class="job-status">Current</div>
+            </div>
+            <h3 class="job-title">Senior Software Engineer</h3>
+            <div class="job-company">Wybrid Technologies Pvt Ltd</div>
+            <ul class="job-bullets">
+              <li>Led frontend and backend teams, driving product improvements and delivering scalable solutions</li>
+              <li>Built full-stack applications using React.js and Node.js with Express, MongoDB, and MUI / Tailwind</li>
+              <li>Deployed and managed apps on AWS using EC2, S3, CloudFront, and Route 53</li>
+              <li>Streamlined CI/CD workflows using GitHub Actions and Docker, accelerating release cycles</li>
+              <li>Integrated third-party services for auth, payments, and external APIs</li>
+            </ul>
+            <div class="job-tags">
+              <span>React.js</span><span>Node.js</span><span>AWS</span><span>MongoDB</span><span>Docker</span>
+            </div>
+          </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="job-header">
-            <div class="job-title">Software Engineer</div>
-            <div class="job-period">Sept 2021 &mdash; Aug 2024</div>
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
           </div>
-          <div class="job-company">Pace Wisdom Solutions Pvt Ltd</div>
-          <ul class="job-bullets">
-            <li>Built responsive web apps using React.js, Next.js, and Node.js with complex backend integrations</li>
-            <li>Led cross-functional teams, improved code quality through reviews and mentorship</li>
-            <li>Designed custom Figma plugins using React.js; proficient in Webpack and Esbuild</li>
-            <li>Improved quality with CI pipelines and automated testing, reducing production bugs</li>
-            <li>Delivered features on time in Agile sprints, aligning tech solutions with business goals</li>
-          </ul>
+          <div class="timeline-card">
+            <div class="job-meta">
+              <div class="job-period-badge">Sept 2021 &mdash; Aug 2024</div>
+            </div>
+            <h3 class="job-title">Software Engineer</h3>
+            <div class="job-company">Pace Wisdom Solutions Pvt Ltd</div>
+            <ul class="job-bullets">
+              <li>Built responsive web apps using React.js, Next.js, and Node.js with complex backend integrations</li>
+              <li>Led cross-functional teams, improved code quality through reviews and mentorship</li>
+              <li>Designed custom Figma plugins using React.js; proficient in Webpack and Esbuild</li>
+              <li>Improved quality with CI pipelines and automated testing, reducing production bugs</li>
+              <li>Delivered features on time in Agile sprints, aligning tech solutions with business goals</li>
+            </ul>
+            <div class="job-tags">
+              <span>Next.js</span><span>TypeScript</span><span>Figma Plugins</span><span>CI/CD</span><span>Jest</span>
+            </div>
+          </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="job-header">
-            <div class="job-title">Freelance Web Developer</div>
-            <div class="job-period">Feb 2020 &mdash; Jan 2021</div>
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
           </div>
-          <div class="job-company">Remote &middot; Bangalore</div>
-          <ul class="job-bullets">
-            <li>Real Estate App &mdash; responsive property listings with HTML, CSS, JavaScript</li>
-            <li>Furniture Shop Page &mdash; product showcase designed in Figma, built with jQuery</li>
-            <li>Restaurant Menu App &mdash; interactive responsive menu using Figma &amp; Adobe tools</li>
-            <li>Local News Website &mdash; clean, user-friendly site built with HTML and CSS</li>
-          </ul>
+          <div class="timeline-card">
+            <div class="job-meta">
+              <div class="job-period-badge">Feb 2020 &mdash; Jan 2021</div>
+            </div>
+            <h3 class="job-title">Freelance Web Developer</h3>
+            <div class="job-company">Remote &middot; Bangalore</div>
+            <ul class="job-bullets">
+              <li>Real Estate App &mdash; responsive property listings with HTML, CSS, JavaScript</li>
+              <li>Furniture Shop Page &mdash; product showcase designed in Figma, built with jQuery</li>
+              <li>Restaurant Menu App &mdash; interactive responsive menu using Figma &amp; Adobe tools</li>
+              <li>Local News Website &mdash; clean, user-friendly site built with HTML and CSS</li>
+            </ul>
+            <div class="job-tags">
+              <span>HTML/CSS</span><span>JavaScript</span><span>Figma</span><span>jQuery</span>
+            </div>
+          </div>
         </div>
 
         <div class="timeline-item">
-          <div class="timeline-dot timeline-dot-purple"></div>
-          <div class="job-header">
-            <div class="job-title">Surveillance Executive</div>
-            <div class="job-period">Jan 2016 &mdash; Jan 2020</div>
+          <div class="timeline-marker">
+            <div class="timeline-dot timeline-dot-muted"></div>
           </div>
-          <div class="job-company">Contrad Bengaluru &amp; Texport Industries Pvt Ltd</div>
-          <ul class="job-bullets">
-            <li>Programmed and debugged CCTV, BMS, lock, and fire control systems</li>
-            <li>Built client relationships and improved team efficiency and cost control</li>
-            <li>Received <strong>Best Employee of the Month</strong> — Conrad Bengaluru (Jan 2019)</li>
-          </ul>
+          <div class="timeline-card timeline-card-muted">
+            <div class="job-meta">
+              <div class="job-period-badge">Jan 2016 &mdash; Jan 2020</div>
+            </div>
+            <h3 class="job-title">Surveillance Executive</h3>
+            <div class="job-company">Conrad Bengaluru &amp; Texport Industries Pvt Ltd</div>
+            <ul class="job-bullets">
+              <li>Programmed and debugged CCTV, BMS, lock, and fire control systems</li>
+              <li>Built client relationships and improved team efficiency and cost control</li>
+              <li>Received <strong>Best Employee of the Month</strong> &mdash; Conrad Bengaluru (Jan 2019)</li>
+            </ul>
+          </div>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       SKILLS
-  ══════════════════════════════════════════ -->
+  <!-- SKILLS -->
   <section id="skills">
     <div class="section-wrap">
-      <div class="section-label">Expertise</div>
-      <h2>Skills &amp;<br>Technologies.</h2>
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">Skills &amp; Tools</h2>
+        <div class="section-line" aria-hidden="true"></div>
+      </div>
 
       <div class="skills-grid">
 
         <div class="skill-card">
-          <div class="skill-icon">⚡</div>
-          <div class="skill-cat">Frontend</div>
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/><line x1="12" y1="22" x2="12" y2="15.5"/><polyline points="22 8.5 12 15.5 2 8.5"/></svg>
+            </div>
+            <div class="skill-cat">Frontend</div>
+          </div>
           <div class="skill-tags">
             <span class="tag">React.js</span>
             <span class="tag">Next.js</span>
@@ -310,8 +299,12 @@
         </div>
 
         <div class="skill-card">
-          <div class="skill-icon">🔧</div>
-          <div class="skill-cat">Backend</div>
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="skill-cat">Backend</div>
+          </div>
           <div class="skill-tags">
             <span class="tag">Node.js</span>
             <span class="tag">Express.js</span>
@@ -322,8 +315,12 @@
         </div>
 
         <div class="skill-card">
-          <div class="skill-icon">🗄️</div>
-          <div class="skill-cat">Databases</div>
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <div class="skill-cat">Databases</div>
+          </div>
           <div class="skill-tags">
             <span class="tag">MongoDB</span>
             <span class="tag">PostgreSQL</span>
@@ -333,8 +330,12 @@
         </div>
 
         <div class="skill-card">
-          <div class="skill-icon">☁️</div>
-          <div class="skill-cat">Cloud &amp; DevOps</div>
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="skill-cat">Cloud &amp; DevOps</div>
+          </div>
           <div class="skill-tags">
             <span class="tag">AWS EC2</span>
             <span class="tag">AWS S3</span>
@@ -346,8 +347,12 @@
         </div>
 
         <div class="skill-card">
-          <div class="skill-icon">🛠️</div>
-          <div class="skill-cat">Tools &amp; Testing</div>
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            </div>
+            <div class="skill-cat">Tools &amp; Testing</div>
+          </div>
           <div class="skill-tags">
             <span class="tag">Git</span>
             <span class="tag">Jest</span>
@@ -361,8 +366,12 @@
         </div>
 
         <div class="skill-card">
-          <div class="skill-icon">🧠</div>
-          <div class="skill-cat">Methodologies</div>
+          <div class="skill-card-header">
+            <div class="skill-icon-wrap">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div class="skill-cat">Methodologies</div>
+          </div>
           <div class="skill-tags">
             <span class="tag">Scrum</span>
             <span class="tag">Kanban</span>
@@ -376,53 +385,77 @@
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       EDUCATION
-  ══════════════════════════════════════════ -->
+  <!-- EDUCATION -->
   <section id="education">
     <div class="section-wrap">
-      <div class="section-label">Education</div>
-      <h2>Academic<br>Foundation.</h2>
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Education</h2>
+        <div class="section-line" aria-hidden="true"></div>
+      </div>
 
       <div class="edu-grid">
         <div class="edu-card">
-          <div class="edu-degree">Bachelor of Computer Science</div>
+          <div class="edu-badge">B.Sc</div>
+          <h3 class="edu-degree">Bachelor of Computer Science</h3>
           <div class="edu-school">Bangalore University, Karnataka</div>
+          <div class="edu-footer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            Computer Science
+          </div>
         </div>
-        <div class="edu-card edu-card-pink">
-          <div class="edu-degree">Engineering Diploma in Mechatronics</div>
+        <div class="edu-card">
+          <div class="edu-badge">Dip</div>
+          <h3 class="edu-degree">Engineering Diploma in Mechatronics</h3>
           <div class="edu-school">SNMP Moodbidire</div>
+          <div class="edu-footer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93L17.66 6.34m0 11.32l1.41 1.41M4.93 4.93l1.41 1.41m0 11.32l-1.41 1.41M21 12h-2M5 12H3m9-9v2m0 14v2"/></svg>
+            Mechatronics
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       CONTACT
-  ══════════════════════════════════════════ -->
+  <!-- CONTACT -->
   <section id="contact">
-    <div class="contact-big">Let&rsquo;s Build<br><span>Together.</span></div>
-    <p class="contact-sub"><a download="./jeevan_resume_d.pdf" class="resume-text" href="./jeevan_resume_d.pdf">Resume</a> &mdash; let&rsquo;s talk.</p>
+    <div class="contact-glow" aria-hidden="true"></div>
+    <div class="contact-inner">
+      <span class="section-num contact-num">05</span>
+      <p class="contact-eyebrow">What's next?</p>
+      <h2 class="contact-title">Get In Touch</h2>
+      <p class="contact-desc">
+        I'm currently open to new opportunities. Whether you have a question
+        or just want to say hello — my inbox is always open.
+      </p>
 
-    <div class="contact-links">
-      <a href="mailto:jeevandsouza94@gmail.com" class="contact-link">
-        ✉&nbsp;&nbsp;jeevandsouza94@gmail.com
+      <a href="mailto:jeevandsouza94@gmail.com" class="btn btn-primary btn-large">
+        Say Hello
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
-      <a href="tel:+919901992861" class="contact-link">
-        ☎&nbsp;&nbsp;+91 99019 92861
-      </a>
-      <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="contact-link">
-        ⟶&nbsp;&nbsp;LinkedIn Profile
-      </a>
+
+      <div class="contact-links">
+        <a href="tel:+919901992861" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          +91 99019 92861
+        </a>
+        <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="./jeevan_resume_d.pdf" download class="contact-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Resume
+        </a>
+      </div>
     </div>
 
-    <div class="footer-line">&copy; 2025 Jeevan DSouza &middot; Crafted with passion &amp; Node.js</div>
+    <footer class="footer-line">
+      <span>Designed &amp; Built by Jeevan DSouza</span>
+      <span>&copy; 2025</span>
+    </footer>
   </section>
 
-  <!-- ══════════════════════════════════════════
-       SCRIPTS  (loader first, then main app)
-  ══════════════════════════════════════════ -->
-  <script src="loader.js"></script>
   <script src="main.js"></script>
 
 </body>
